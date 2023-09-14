@@ -1,10 +1,10 @@
 const shoppingList = document.getElementById('shoppingList');
 const newItemInput = document.getElementById('newItemInput');
 
-// Inicializa a lista de compras com itens existentes, se houver.
+
 const items = getItemsFromLocalStorage();
 
-
+// Exibe os itens existentes na lista.
 displayItems();
 
 function addItem() {
@@ -21,44 +21,39 @@ function addItem() {
     };
     items.push(newItem);
 
-    // Atualiza o localStorage.
     saveItemsToLocalStorage();
 
-    // Limpa o campo de entrada e exibe novamente a lista.
     newItemInput.value = '';
     displayItems();
 }
 
 
-
 function removeItem(itemId) {
-    // Remove o item da lista.
+ 
     const itemIndex = items.findIndex(item => item.id === itemId);
     if (itemIndex !== -1) {
         items.splice(itemIndex, 1);
     }
 
-    // Atualiza o localStorage.
     saveItemsToLocalStorage();
 
-    // Exibe novamente a lista.
     displayItems();
 }
 
 function displayItems() {
-    // Limpa a lista de compras.
+
     shoppingList.innerHTML = '';
 
-    // Adiciona os itens à lista.
+
     for (const item of items) {
         const listItem = document.createElement('li');
         if (item.isEditing) {
             listItem.innerHTML = `<input type="text" id="editItem" value="${item.text}">
-                                  <button onclick="saveEdit(${item.id})">Speichern</button>`;
+                                  <button id="btnsalve" onclick="saveEdit(${item.id})">Speichern</button>`;
         } else {
             listItem.innerHTML = `${item.text}
-     <button onclick="editItem(${item.id})">Bearbeiten</button>
-       <button onclick="removeItem(${item.id})">Entfernen</button>`;
+     <button class="btnEdit" onclick="editItem(${item.id})"><i class="fa fa-pencil"></i></button>
+       <button class="btnRemove" onclick="removeItem(${item.id})"><i class="fa fa-trash"></i></button>`;
         }
         shoppingList.appendChild(listItem);
     }

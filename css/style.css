@@ -1,0 +1,132 @@
+body {
+    background: #000;
+    color: #FFF;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+.content {
+    margin: 0 auto;
+    width: 100%;;
+    max-width: 450px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #2b2a2a;
+    padding: 55px;
+    border-radius: 12px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;     
+ }
+
+ .topo input {
+    width: 350px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #191818;
+    outline: none;
+    font-size: 1.2rem;
+    background: #191818;
+    color: #FFF;
+}
+
+.topo button {
+    width: 45px;
+    border-radius: 12px;
+    border: 1px solid #191818;
+    background: #191818;
+    color: #FFF;
+    outline: none;
+}
+
+.topo button:hover {
+    background: #1f1e1e;
+    cursor: pointer;
+}
+
+#shoppingList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#shoppingList li {
+    padding: 20px;
+    background: #191818;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#editItem  {
+    background: #2d2c2c;
+    border: 1px solid #191818;
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    color: #CCC;
+    cursor: pointer;
+    height: 50px;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+#editItem:hover {
+    background: #3c3a3a;
+} 
+
+.btnEdit {
+    border-radius: 20px;
+    border: 1px solid #191818;
+    width: 38px;
+    height: 38px;
+    margin-right: 8px;
+    cursor: pointer;
+    background: #2b2a2a;
+    color: #FFF;
+    outline: none;
+    }
+    
+    .btnEdit:hover {
+        background: #0fb4dd;
+    }
+
+
+.btnRemove {
+border-radius: 20px;
+border: 1px solid #191818;
+width: 38px;
+height: 38px;
+margin-right: 8px;
+cursor: pointer;
+background: #2b2a2a;
+color: #FFF;
+outline: none;
+}
+
+.btnRemove:hover {
+    background: #dd0f0f;
+}
+
+#btnsalve  {
+    background: #2d2c2c;
+    border: 1px solid #191818;
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    color: #CCC;
+    cursor: pointer;
+    height: 50px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.btnsalve:hover {
+    background: #3c3a3a;
+} 
