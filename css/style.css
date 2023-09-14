@@ -4,6 +4,7 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
+    display: flex;
 }
 
 .content {
@@ -15,6 +16,14 @@ body {
     background: #2b2a2a;
     padding: 55px;
     border-radius: 12px;
+    border: 2px solid rgb(255, 167, 0);
+}
+
+h1 {
+    font-size: 2rem; 
+    color:#FFF; 
+    text-align: center; 
+    text-transform: uppercase; 
 }
 
 .topo {
@@ -23,7 +32,7 @@ body {
     margin-bottom: 35px;     
  }
 
- .topo input {
+.topo input {
     width: 350px;
     padding: 15px;
     border-radius: 12px;
@@ -44,7 +53,7 @@ body {
 }
 
 .topo button:hover {
-    background: #1f1e1e;
+    background: rgb(255, 167, 0);
     cursor: pointer;
 }
 
@@ -64,69 +73,141 @@ body {
     margin-top: 20px;
 }
 
-#editItem  {
-    background: #2d2c2c;
-    border: 1px solid #191818;
-    padding: 7px;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    color: #CCC;
-    cursor: pointer;
-    height: 50px;
-    font-size: 1.3rem;
-    outline: none;
-}
-
-#editItem:hover {
-    background: #3c3a3a;
-} 
-
-.btnEdit {
+.btnEdit,
+.btnRemove {
     border-radius: 20px;
     border: 1px solid #191818;
     width: 38px;
-    height: 38px;
-    margin-right: 8px;
+    height: 38px; 
+    margin-right: 5px; 
     cursor: pointer;
     background: #2b2a2a;
     color: #FFF;
     outline: none;
-    }
+    display: inline-block; 
     
-    .btnEdit:hover {
-        background: #0fb4dd;
-    }
-
-
-.btnRemove {
-border-radius: 20px;
-border: 1px solid #191818;
-width: 38px;
-height: 38px;
-margin-right: 8px;
-cursor: pointer;
-background: #2b2a2a;
-color: #FFF;
-outline: none;
 }
 
 .btnRemove:hover {
-    background: #dd0f0f;
+    background: #a00404;
+}
+
+.btnEdit:hover {
+    background: rgb(255, 167, 0);
 }
 
 #btnsalve  {
-    background: #2d2c2c;
+    background-color: rgba(45, 44, 44, 0.8); 
     border: 1px solid #191818;
-    padding: 7px;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    color: #CCC;
+    padding: 10px 20px;
+    color: rgb(255, 167, 0);
     cursor: pointer;
-    height: 50px;
     font-size: 1rem;
     outline: none;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(45deg, #2b2a2a 25%, #3c3a3a 25%, #3c3a3a 50%, #2b2a2a 50%, #2b2a2a 75%, #3c3a3a 75%, #3c3a3a 100%);
+    background-size: 7px 7px;
 }
 
-.btnsalve:hover {
-    background: #3c3a3a;
-} 
+#btnsalve:hover {
+    background: rgba(60, 58, 58, 0.8); 
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4);
+    color: #FFF; 
+}
+
+/* homepage*/
+
+.titulo-tracking-in-expand-fwd {
+    font-size:3rem;
+    color: #FFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    align-items: center;
+    margin-top: 20%;
+    margin-right: 40%;
+}
+
+.highlight {
+    color: rgb(255, 167, 0); /* Cor diferente para a palavra "EINKAUFEN LIST" */
+}
+
+
+.titulo-tracking-in-expand-fwd {
+	-webkit-animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@-webkit-keyframes tracking-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-700px);
+              transform: translateZ(-700px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-700px);
+              transform: translateZ(-700px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  
+
+section.images {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+   
+}
+
+section.images img {
+    width: 60rem;
+    margin-left: 250px; 
+    transform: rotate(10deg); 
+    margin-top: -50%; 
+}
+
+section.images .circle {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #E8CBC0, #636FA4);
+    clip-path: circle(40% at right 80%);
+    z-index: -1;
+}
+
+.highlight {
+    color: rgb(255, 167, 0); 
+
+}
+
+#getStarted {
+    padding: 18px 50px;
+    color: rgb(204, 195, 195);
+    text-decoration: none;
+    border-radius: 32px;
+    margin-left: 2rem; /* Ajuste a margem esquerda para 2rem */
+    font-size: 1.2rem;
+    background-color: rgb(71, 73, 67);
+}

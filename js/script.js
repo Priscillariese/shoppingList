@@ -1,10 +1,9 @@
 const shoppingList = document.getElementById('shoppingList');
 const newItemInput = document.getElementById('newItemInput');
-
-
 const items = getItemsFromLocalStorage();
 
-// Exibe os itens existentes na lista.
+
+
 displayItems();
 
 function addItem() {
