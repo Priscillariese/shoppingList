@@ -63,7 +63,7 @@ function displayItems() {
     }
 }
 function editItem(itemId) {
-    // Set the item's editing flag to true.
+
     const itemToEdit = items.find(item => item.id === itemId);
     if (itemToEdit) {
         itemToEdit.isEditing = true;
@@ -72,7 +72,7 @@ function editItem(itemId) {
 }
 
 function saveEdit(itemId) {
-    // Save the edited item text and set the editing flag to false.
+
     const itemToSave = items.find(item => item.id === itemId);
     const editInput = document.getElementById('editItem');
     if (itemToSave && editInput) {
