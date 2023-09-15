@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page - Einkaufsliste</title>
+    <title>Einkaufsliste</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="contentHome">
-    <h2 class="titulo-tracking-in-expand-fwd">Vergessen Sie nie wieder, <br>
-        was Sie kaufen müssen, <br> mit <strong class="highlight">Einkaufen List.</strong></h2>
-        <button id="getStarted" onclick="redirectToNextPage()">Los geht's</button>
-
-    <section class="images">
-        <img src="/img/einkaufe2.png" alt="wagen">
-        <div class="circle"></div>
-    </section>
+    <main class="content">
+    <h1>Einkaufsliste</h1>
+    <form class="topo">
+        <input type="text" id="newItemInput" placeholder="Neues Element">
+        <button id="btnAddItem"onclick="addItem()">
+            <i class="fa fa-plus"></i>
+        </button>
+    </form>
+    <ul id="shoppingList">
+    </ul>
+</main>
+<div class="wagen">
+    <img src="./img/1.png" alt="einkaufen" class="einkaufen" />
     </div>
 </body>
-<script>
- function redirectToNextPage() {
-    window.location.href = 'home.html';
-}
-</script>
 <script src="/js/script.js"></script>
 </html>
