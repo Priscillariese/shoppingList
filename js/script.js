@@ -1,94 +1,84 @@
-const shoppingList = document.getElementById('shoppingList');
-const newItemInput = document.getElementById('newItemInput');
-const items = getItemsFromLocalStorage();
+import finishButton from './finishButton.js';
+import buttonDelete from './deleteButton.js';
 
 
-
-displayItems();
-
-function addItem() {
-    const newItemText = newItemInput.value.trim();
-
-    if (newItemText === '') {
-        alert('Bitte geben Sie einen Artikel ein.');
-        return;
+const loadListFromLocalStorage = () => {
+  const storedList = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  
+  const list = document.querySelector('[data-list]');
+  list.innerHTML = '';
+  
+  storedList.forEach(item => {
+    const product = document.createElement('li');
+    product.classList.add('product');
+    if (item.done) { 
+      product.classList.add('done');
     }
+    const text = `<p class="text">${item.value}</p><p class="amount">${item.amount}</p>`;
+    product.innerHTML = text;
 
-    const newItem = {
-        text: newItemText,
-        id: Date.now()
-    };
-    items.push(newItem);
-
-    saveItemsToLocalStorage();
-
-    newItemInput.value = '';
-    displayItems();
-}
+    product.appendChild(finishButton());
+    product.appendChild(buttonDelete());
+    list.appendChild(product);
+  });
+};
 
 
-function removeItem(itemId) {
- 
-    const itemIndex = items.findIndex(item => item.id === itemId);
-    if (itemIndex !== -1) {
-        items.splice(itemIndex, 1);
-    }
+const createProduct = (value, amount) => {
+  const list = document.querySelector('[data-list]');
+  
+  const product = document.createElement('li');
+  product.classList.add('product');
+  const text = `<p class="text">${value}</p><p class="amount">${amount}</p>`;
+  product.innerHTML = text;
 
-    saveItemsToLocalStorage();
-
-    displayItems();
-}
-
-function displayItems() {
-
-    shoppingList.innerHTML = '';
+  product.appendChild(finishButton());
+  product.appendChild(buttonDelete());
+  list.appendChild(product);
+};
 
 
-    for (const item of items) {
-        const listItem = document.createElement('li');
-        if (item.isEditing) {
-            listItem.innerHTML = `<input type="text" id="editItem" value="${item.text}">
-                                  <button id="btnsalve" onclick="saveEdit(${item.id})">Speichern</button>`;
-        } else {
-            listItem.innerHTML = `
-    <div style="overflow:hidden;text-overFlow:ellipsis;max-width:270px">${item.text}</div>
-    <span style="width:110px">
-         <button class="btnEdit" onclick="editItem(${item.id})"><i class="fa fa-pencil"></i></button>
-       <button class="btnRemove" onclick="removeItem(${item.id})"><i class="fa fa-trash"></i></button>
-       </span> `;
-       
-        }
-
-        shoppingList.appendChild(listItem);
-    }
-}
-function editItem(itemId) {
-
-    const itemToEdit = items.find(item => item.id === itemId);
-    if (itemToEdit) {
-        itemToEdit.isEditing = true;
-        displayItems();
-    }
-}
-
-function saveEdit(itemId) {
-
-    const itemToSave = items.find(item => item.id === itemId);
-    const editInput = document.getElementById('editItem');
-    if (itemToSave && editInput) {
-        itemToSave.text = editInput.value.trim();
-        itemToSave.isEditing = false;
-        saveItemsToLocalStorage();
-        displayItems();
-    }
-}
+const saveListToLocalStorage = () => {
+  const listItems = document.querySelectorAll('.product');
+  const shoppingList = [];
+  
+  listItems.forEach(item => {
+    const textElement = item.querySelector('.text');
+    const amountElement = item.querySelector('.amount');
+    
+    shoppingList.push({ value: textElement.textContent, amount: amountElement.textContent, done: item.classList.contains('done') }); // Adiciona o atributo done ao objeto
+  });
+  
+  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+};
 
 
-function getItemsFromLocalStorage() {
-    const itemsJSON = localStorage.getItem('shoppingItems');
-    return itemsJSON ? JSON.parse(itemsJSON) : [];
-}
+const newProductButton = document.querySelector('[data-form-button]');
+newProductButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  
+  const input = document.querySelector('[data-form-input]');
+  const amountInput = document.querySelector('[name="amount"]');
+  const value = input.value.trim();
+  const amount = amountInput.value.trim();
+  
+  if (value !== '' && amount !== '') {
+    createProduct(value, amount);
+    saveListToLocalStorage();
+    input.value = '';
+    amountInput.value = '';
+  }
+});
 
-function saveItemsToLocalStorage() {
-    localStorage.setItem('shoppingItems', JSON.stringify(items));
-}
+a
+window.addEventListener('DOMContentLoaded', () => {
+  loadListFromLocalStorage();
+});
+
+
+const list = document.querySelector('[data-list]');
+list.addEventListener('click', (event) => {
+  if (event.target.classList.contains('finish-button') || event.target.classList.contains('delete-button')) {
+    saveListToLocalStorage();
+  }
+});

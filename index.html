@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Einkaufsliste</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./image/favicon.png" type="image/x-icon">
+    <title>Einkaufsliste</title>
 </head>
 <body>
-    <main class="content">
-    <h1>Einkaufsliste</h1>
-    <form class="topo">
-        <input type="text" id="newItemInput" placeholder="Neues Element">
-        <button id="btnAddItem"onclick="addItem()">
-            <i class="fa fa-plus"></i>
-        </button>
-    </form>
-    <ul id="shoppingList">
-    </ul>
-</main>
-<div class="wagen">
-    <img src="./img/1.png" alt="einkaufen" class="einkaufen" />
-    </div>
+    <main>
+        <div class="content">
+            <h1 class="content__title">Einkaufsliste</h1>
+            <h4>Vergessen Sie nie wieder, was Sie kaufen müssen.</h4><br>
+            <div class="container">
+                <form class="content__form" action="">
+                    <input class="content__form__input" type="text" name="name" id="name" data-form-input maxlength="200"  autocomplete="off" required placeholder="Add Artikel">
+                    <input class="content__form__input" type="number" name="amount" id="amount" required placeholder="Add Lein">
+                </form>
+                <div class="container__submit">
+                    <input class="content__form__submit" type="submit" id="submit" data-form-button value=""></input>
+                </div>
+            </div>
+            <ul class="content__list" id="list" data-list></ul>
+        </div>
+    </main>
+    <script src="./js/script.js" type="module"></script>
 </body>
-<script src="./js/script.js"></script>
 </html>
